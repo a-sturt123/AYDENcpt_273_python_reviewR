@@ -1,8 +1,8 @@
-#Refelction Questions:
+#Reflection Questions:
 
 # 1. What was the most challeniging part of the assignment for me?
 
-# I would say the most difficult part of this assignment was troubleshooting the connection to the pstgresql server. Because while the code, environment variables, and dependencies were set up correctly,
+# I would say the most difficult part of this assignment was troubleshooting the connection to the postgresql server. Because while the code, environment variables, and dependencies were set up correctly,
 # the connection consistnetly failed due to password authentication and possible server control issues. Debugging this required seperating issues between client side and server side.
 
 #2. How did I overcome these challenges?
@@ -15,7 +15,7 @@
 
 # Through this assignmnet I gained a much better understanding of how python interacts with databases using SQLAlchemy and how authentication and access control can possibly impact automated processes.
 # I also learned to design scripts that can fail gracefully so to speak by detecting possible detection issues and switching to fallback data sources. And additionally I also strengtned my skills with
-#pandas for grouping, aggregation, and time based data analysis.
+# pandas for grouping, aggregation, and time based data analysis.
 
 
 
