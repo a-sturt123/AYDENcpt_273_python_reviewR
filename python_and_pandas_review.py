@@ -23,7 +23,6 @@ db_db = os.getenv("db_db")
 db_host = os.getenv("db_host")
 
 # Create PostgreSQL connection string
-# (On host machine, this may fail because postgres.cpt.internal is an internal hostname)
 connection_string = f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_db}"
 
 #%%
@@ -54,7 +53,6 @@ def load_df():
 
     # 2) Try real DB read
     try:
-        # If your DB enforces SSL, you can add: ?sslmode=require
         engine = create_engine(connection_string)
         df_real = pd.read_sql(query, engine)
         print(" Connected to Postgres and loaded real data")
