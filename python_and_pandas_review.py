@@ -1,3 +1,26 @@
+#Refelction Questions:
+
+# 1. What was the most challeniging part of the assignment for me?
+
+# I would say the most difficult part of this assignment was troubleshooting the connection to the pstgresql server. Because while the code, environment variables, and dependencies were set up correctly,
+# the connection consistnetly failed due to password authentication and possible server control issues. Debugging this required seperating issues between client side and server side.
+
+#2. How did I overcome these challenges?
+
+# I overcame these challenges by methodically testing each layer of the connection process. I verified that the variables were loading correctly, confirmed that the required libraries were installed,
+#and used the psql client to directly test connectivity to the database. After I was able to more or less confirm that the issues were server side, I created a mock data set with the same structure as
+#the real database output. This then allowed me to continue developing and testing the Pandas analysis logic.
+
+# 3. What new concepts and skills did I learn from this assignment?
+
+# Through this assignmnet I gained a much better understanding of how python interacts with databases using SQLAlchemy and how authentication and access control can possibly impact automated processes.
+# I also learned to design scripts that can fail gracefully so to speak by detecting possible detection issues and switching to fallback data sources. And additionally I also strengtned my skills with
+#pandas for grouping, aggregation, and time based data analysis.
+
+
+
+
+
 #%% Import necessary libraries
 
 # SQL Alchemy for database connection
@@ -11,7 +34,7 @@ from dotenv import load_dotenv
 import os
 import socket
 
-# load environment variables from .env file
+# load environment variables from .env file no fail
 from pathlib import Path
 load_dotenv(dotenv_path=Path(__file__).with_name(".env"))
 
@@ -30,7 +53,7 @@ connection_string = f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_d
 query = "SELECT * FROM electricity.usage_data;"
 
 def load_mock_df():
-    # Mock dataset with the same columns we’ll use in analysis.
+    # Mock dataset with the same columns I'll use in analysis
     return pd.DataFrame({
         "interval_end_date": pd.date_range("2025-01-01", periods=24 * 14, freq="h"),
         "kwh": [
@@ -67,8 +90,6 @@ df = load_df()
 
 print("Data preview:")
 print(df.head())
-
-
 
 
 
@@ -165,8 +186,8 @@ monthly_usage_series.plot(title="Overall Usage Trend (kWh by Month)")
 # Assignment Easter Egg (Optional - 5 points):
 # Why would we not be able to compare these values year over year?
 
-# Year over year comparison can be misleading if you don't have complete years of data (missing months/partial year),
-# or if major factors changed (weather, occupancy, appliances, efficiency upgrades)
+# Year over year comparison can be misleading if you don't have complete years of data,
+# or if major factors changed (weather, occupancy, appliances)
 
 '''
 
