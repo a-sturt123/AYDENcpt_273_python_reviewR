@@ -168,7 +168,7 @@ monthly_usage_series.plot(title="Overall Usage Trend (kWh by Month)")
 # Why would we not be able to compare these values year over year?
 
 # Year over year comparison can be misleading if you don't have complete years of data (missing months/partial year),
-# or if major factors changed (weather, occupancy, appliances, efficiency upgrades).
+# or if major factors changed (weather, occupancy, appliances, efficiency upgrades)
 
 '''
 
